@@ -45,11 +45,11 @@ from django.shortcuts import render
 
 def Homepage(request):      # Request response ..
     context = {
-        "title":"Mukesh Dubey",
-        "name":"hello",
+        "title":"Hello",
+        "name":"Mukesh Dubey",
     }
 
-    return render(request, "homeview.html" , context)
+    return render(request, "sample.html" , context)
 
 def MukeshPage(request):
     context = {
@@ -66,3 +66,27 @@ def GauravPage(request):
     }
     # Request response ..
     return render(request, "homeview.html" , context)
+
+
+def Contactform(request):
+    context = {
+        "title": "Contact Page",
+        "content": "welcome to Our contact page",
+
+    }
+    # if request.method == "GET":
+    #     print(request.GET)
+    #     print(request.GET.get('fullname'))
+    #     print(request.GET.get('email'))
+    #     print(request.GET.get('content'))
+
+    if request.method == "POST":
+        print(request.POST)
+        print(request.POST.get('name'))
+        print(request.POST.get('email'))
+        print(request.POST.get('pwd'))
+        print(request.POST.get('content'))
+
+
+    return render(request, "contact.html", context)
+

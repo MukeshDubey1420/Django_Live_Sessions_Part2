@@ -15,18 +15,22 @@
 
   <h2>{{ content}}</h2>
 
-<form method='GET'>
-
+<form method='POST'>
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="email">Name:</label>
+      <input type="name" class="form-control" id="name" placeholder="Enter Your Name" name="name" required>
+    </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
     </div>
     <label for="comment">Comment:</label>
-    <textarea class="form-control" rows="5" id="comment"></textarea>
+    <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div>
